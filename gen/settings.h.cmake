@@ -56,7 +56,7 @@
 #cmakedefine HAVE_LIBCURSES 1
 
 /* Define to 1 if you have the `dl' library (-ldl). */
-#cmakedefine HAVE_LIBDL 0
+#undef HAVE_LIBDL
 
 /* Defined if mblen is supported */
 #cmakedefine HAVE_MBLEN 1
