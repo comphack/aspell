@@ -1,9 +1,9 @@
 project(aspell)
 cmake_minimum_required(VERSION 2.4.5)
 
-if(CMAKE_SIZEOF_VOID_P MATCHES "8")
-  set(MY_SUFFIX "64")
-endif(CMAKE_SIZEOF_VOID_P MATCHES "8")
+#if(CMAKE_SIZEOF_VOID_P MATCHES "8")
+#  set(MY_SUFFIX "64")
+#endif(CMAKE_SIZEOF_VOID_P MATCHES "8")
 
 set(LIB_SUFFIX ${MY_SUFFIX} CACHE STRING "Define suffix of directory name (32/64)" )
 
