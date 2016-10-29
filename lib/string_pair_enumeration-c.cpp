@@ -9,6 +9,14 @@
 #include "string_pair.hpp"
 #include "string_pair_enumeration.hpp"
 
+struct AspellStringPair {
+
+  const char * first;
+
+  const char * second;
+
+};
+
 namespace acommon {
 
 class StringPairEnumeration;
@@ -18,9 +26,14 @@ extern "C" int aspell_string_pair_enumeration_at_end(const StringPairEnumeration
   return ths->at_end();
 }
 
-extern "C" StringPair aspell_string_pair_enumeration_next(StringPairEnumeration * ths)
+extern "C" struct AspellStringPair aspell_string_pair_enumeration_next(StringPairEnumeration * ths)
 {
-  return ths->next();
+  const StringPair& a = ths->next();
+  struct AspellStringPair b;
+  b.first = a.first;
+  b.second = a.second;
+
+  return b;
 }
 
 extern "C" void delete_aspell_string_pair_enumeration(StringPairEnumeration * ths)

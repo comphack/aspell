@@ -234,7 +234,7 @@ static const PossibleOption * find_option(const char * begin, const char * end) 
 static const PossibleOption * find_option(const char * str) {
   const PossibleOption * i = possible_options;
   while (i != possible_options_end 
-	 && !strcmp(str, i->name) == 0)
+	 && strcmp(str, i->name) != 0)
     ++i;
   return i;
 }
@@ -2311,7 +2311,7 @@ void munch_list_complete(bool multi, bool simplify)
     exp_list = lang->expand(w, af, exp_buf);
     for (WordAff * q = exp_list; q; q = q->next) {
       if (!table.have(q->word)) // since it is a multi hash table
-        table.insert(CML_Entry(table_buf.dup(q->word))).first;
+        table.insert(CML_Entry(table_buf.dup(q->word)));
     }
   }
 
